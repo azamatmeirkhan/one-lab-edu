@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="hw.css">
+    </head>
+    <body>
+        <div class="firstTask">
+            <article>
+                <header>
+                <h2>About me</h2>
+                <p>By Meirkhan Azamat</p>
+                </header>
+                <p>So, my name is Azamat. I was born 19 years ago in Semey city.I study at SDU university.</p>
+            </article>
+            <section>
+                <h1>Attack on Titan</h1>
+                <p>Attack on Titan (Japanese: 進撃の巨人, Hepburn: Shingeki no Kyojin, lit. "The Attack Titan") is a Japanese manga series written and illustrated by Hajime Isayama.</p>
+            </section> 
+            <footer>
+                <p>Author: Meirkhan Azamat</p>
+                <p><a href="meirkhan123321@gmail.com">meirkhan123321@gmail.com</a></p>
+            </footer>             
+        </div>
+        <div class="secondTask">
+            <form>
+                <label for="qunatity">Quantity: </label>
+                <input type="number" id="qunatity" name="qunatity" min="1" max="20"><br></br>
+                <label for="birthdate">Birth Date: </label>
+                <input type="date" id="birthdate" name="birthdate"><br></br>
+                <label for="volume">Volume (between 0 and 100):</label>
+                <input type="range" id="volume" name="volume" min="0" max="100">
+            </form>
+        </div>
+        <div class="thirdTask">
+            <svg height="200" width="200">
+                <circle cx="100" cy="100" r="50" stroke="gray" stroke-width="2" fill="lightgreen"/>
+            </svg><br>
+            <canvas id="myCanvas" width="200" height="200"></canvas>
+        </div>
+        <div class="fourthTask">
+            <audio controls>
+                <source src="azamat.mp3" type="azamat/mpeg">
+            </audio><br></br>
+            <video width="300" height="250" controls>
+                <source src="movie.mp4" type="video/mp4">
+            </video>      
+        </div>
+        <div class="svg-smile">
+            <svg id="face" height="200" width="300">
+                <circle cx="150" cy="95" r="80"/>         
+                <circle cx="170" cy="60" r="10" class="eye"/>
+                <circle cx="130" cy="60" r="10" class="eye"/>
+                <path d="M115 105 a1,0.8 0.2 0,0 70,0" />
+            </svg>
+        </div>
+        <div class="canvas-smile">
+            <canvas id="smileCanvas" width="300" height="200"></canvas>
+        </div>
+
+
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var gtx = canvas.getContext("2d");
+            gtx.beginPath();
+            gtx.arc(100,100,50,0,2*Math.PI);
+            gtx.fillStyle = "blue";
+            gtx.lineWidth = 2;
+            gtx.strokeStyle = "gray";
+            gtx.fill();
+            gtx.stroke();
+            gtx.closePath();
+
+
+
+
+            var mycanvas = document.getElementById('smileCanvas');
+            var context = mycanvas.getContext('2d');
+            context.fillStyle = 'yellow';
+            context.strokeStyle = 'black';
+            context.lineWidth = 3;
+            context.beginPath();
+            context.arc(150, 95, 80, 0, 2 * Math.PI);
+            context.fill();
+            context.stroke();
+            context.closePath();
+            
+            //right eye
+            context.fillStyle = 'black';
+            context.strokeStyle = 'red';
+            context.beginPath();
+            context.arc(170, 60, 10, 0, 2 * Math.PI);
+            context.fill();
+            context.stroke();
+            context.closePath();
+
+            //left eye
+            context.beginPath();
+            context.strokeStyle = 'red';
+            context.arc(130, 60, 10, 0, 2 * Math.PI);
+            context.fill();
+            context.stroke();
+            context.closePath();
+
+            //mouth
+            context.strokeStyle = 'black';
+            context.lineWidth = 3;
+            context.beginPath();
+            context.arc(150, 90, 40, 0, -1 * Math.PI);
+            context.stroke();
+            context.closePath();
+
+
+        </script>
+    </body>
+</html>

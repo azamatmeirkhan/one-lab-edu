@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @keyframes example{
+                from {background-color: red;}
+                to {background-color: yellow;}
+            }
+            .div{
+                width: 100px;
+                height: 100px;
+                position: relative;
+                background-color: red;
+                animation-name: example;
+                animation-duration: 4s;
+                animation-iteration-count: 3;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="getLocation()">Click</button>
+        <p id="demo"></p>
+        <div>
+            <form>
+                <label for="firstname">First Name:</label><br>
+                <input type="text" id="firstname" name="firstname" placeholder="First Name"><br>
+                <label for="lastname">Last Name:</label><br>
+                <input type="text" id="lastname" name="lastname" placeholder="Last Name"><br>
+                <label for="date">Birth Date:</label><br>
+                <input type="date" id="date" name="date" placeholder="Birth Date"><br>
+                <label for="gender">Gender:</label><br>
+                <input type="text" id="gender" name="gender" placeholder="Gender"><br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email" placeholder="Email"><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" placeholder="Password"><br>
+            </form>
+            <button onclick="myFunc()" type="button">Store</button>
+        </div>
+        <div class="div"></div>
+        
+
+        <script>
+                var x = document.getElementById("demo");
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else { 
+                        x.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+                function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude + 
+                "<br>Longitude: " + position.coords.longitude;
+                }
+
+
+                function myFunc()
+                {
+                    var inputName = document.getElementById("firstname");
+                    var inputSurname = document.getElementById("lastname");
+                    var inputDate = document.getElementById("date");
+                    var inputGender = document.getElementById("gender");
+                    var inputEmail = document.getElementById("email");
+                    var inputPassword = document.getElementById("password");
+                    localStorage.setItem("firstname",inputName.value);
+                    localStorage.setItem("lastname",inputSurname.value);
+                    localStorage.setItem("date",inputDate.value);
+                    localStorage.setItem("gender",inputGender.value);
+                    localStorage.setItem("email",inputEmail.value);
+                    localStorage.setItem("password",inputPassword.value);
+                    var storedName = localStorage.getItem("firstname");
+                    var storedSurname = localStorage.getItem("lastname");
+                    var storedDate = localStorage.getItem("date");
+                    var storedGender = localStorage.getItem("gender");
+                    var storedEmail = localStorage.getItem("email");
+                    var storedPassword = localStorage.getItem("password");
+                    alert("Full name: " + storedName + storedSurname+"\n"
+                        + "Birthday: " + storedDate + "\n"
+                        + "Gender: " + storedGender + "\n"
+                        + "Email: "+ storedEmail + "\n"
+                        + "Password: "+ storedPassword);
+                }
+                
+        </script>
+    </body>
+</html>
